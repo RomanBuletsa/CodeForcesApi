@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CodeforcesApi</string>
+    <string name="internet">No internet connection, Please make sure your device is connected to the internet</string>
+    <string name="countryText">country</string>
+    <string name="cityText">city</string>
+    <string name="searchHandle">handle</string>
+    <string name="sort">Sort</string>
+    <string name="search">Search</string>
+</resources>
