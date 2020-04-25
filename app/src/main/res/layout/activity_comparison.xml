@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back">
+
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/battlelogo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                app:srcCompat="@drawable/battle" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+                <!-- Left side -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user_image_header1"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:layout_gravity="center"
+                        android:elevation="2dp"
+                        android:src="@drawable/cflogomini"
+                        app:civ_border_color="#fd0559"
+                        app:civ_border_width="2dp"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.278"
+                        app:layout_constraintStart_toStartOf="@+id/item_block"
+                        app:layout_constraintTop_toTopOf="@+id/item_block" />
+
+                    <TextView
+                        android:id="@+id/username1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/sfuidisplay_light"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:text="Nickname"
+                        android:layout_marginBottom="30dp"/>
+                </LinearLayout>
+                <!-- Right side -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user_image_header2"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:layout_gravity="center"
+                        android:elevation="2dp"
+                        android:src="@drawable/cflogomini"
+                        app:civ_border_color="#fd0559"
+                        app:civ_border_width="2dp"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.278"
+                        app:layout_constraintStart_toStartOf="@+id/item_block"
+                        app:layout_constraintTop_toTopOf="@+id/item_block" />
+
+                    <TextView
+                        android:id="@+id/username2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_light"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:text="Nickname"
+                        android:layout_marginBottom="30dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- RATING -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="RATING"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rating1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rating2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 0 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="MIN RATING"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/minrating1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/minrating2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- MAX RATING -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="MAX RATING"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/maxRating1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/maxRating2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- NUMBER TWO -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="CONTESTS"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contest1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contest2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- NUMBER THREE -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="NUMBER OF ATTEMPTS"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/numberofattempts1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/numberofattempts2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Number four -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="NUMBER OF SUCCESSES"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/numberofsuccesses1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/numberofsuccesses2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Number five -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="MAX UP"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/maxup1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/maxup2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Number six -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="MAX DOWN"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/maxdown1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/maxdown2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Contribution -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/onlygradient">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfuidisplay_thin"
+                    android:text="CONTRIBUTION"
+                    android:padding="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_gravity="center"
+                android:background="@color/item_bg">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contribution1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contribution2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/sfuidisplay_thin"
+                        android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
