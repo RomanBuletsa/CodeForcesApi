@@ -2,11 +2,14 @@ package com.example.yaroslav.codeforcesapi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,19 +86,69 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public ItemAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_user, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.new_row_user, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ItemAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.title.setText((i + 1) + ". " + items1.get(i).getLogin());
-        viewHolder.rating1.setText(items1.get(i).getRating());
-        String photo = "https:" + items1.get(i).getAvatarUrl();
-        Picasso.with(context)
-                .load(photo)
-                //.placeholder(R.drawable.load)
-                .into(viewHolder.imageView);
+
+        //Animations
+            viewHolder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.list_items_anim));
+            viewHolder.item_div.setAnimation(AnimationUtils.loadAnimation(context, R.anim.block_item_anim));
+
+            viewHolder.title.setText((i + 1) + ". " + items1.get(i).getLogin());
+            viewHolder.rating1.setText(items1.get(i).getRating());
+
+
+            if (Integer.parseInt(items1.get(i).getRating()) < 3000 && Integer.parseInt(items1.get(i).getRating()) >= 2600){
+                viewHolder.rank.setText("International Grandmaster");
+                viewHolder.rank.setTextColor(Color.parseColor("#FF3333"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 2600 && Integer.parseInt(items1.get(i).getRating()) >= 2400) {
+                viewHolder.rank.setText("Grandmaster");
+                viewHolder.rank.setTextColor(Color.parseColor("#FF7777"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 2400 && Integer.parseInt(items1.get(i).getRating()) >= 2300) {
+                viewHolder.rank.setText("International Master");
+                viewHolder.rank.setTextColor(Color.parseColor("#FFBB55"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 2300 && Integer.parseInt(items1.get(i).getRating()) >= 2100) {
+                viewHolder.rank.setText("Master");
+                viewHolder.rank.setTextColor(Color.parseColor("#FFCC88"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 2100 && Integer.parseInt(items1.get(i).getRating()) >= 1900) {
+                viewHolder.rank.setText("Candidate Master");
+                viewHolder.rank.setTextColor(Color.parseColor("#FF88FF"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 1900 && Integer.parseInt(items1.get(i).getRating()) >= 1600) {
+                viewHolder.rank.setText("Expert");
+                viewHolder.rank.setTextColor(Color.parseColor("#AAAAFF"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 1600 && Integer.parseInt(items1.get(i).getRating()) >= 1400) {
+                viewHolder.rank.setText("Specialist");
+                viewHolder.rank.setTextColor(Color.parseColor("#77DDBB"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 1400 && Integer.parseInt(items1.get(i).getRating()) >= 1200) {
+                viewHolder.rank.setText("Pupil");
+                viewHolder.rank.setTextColor(Color.parseColor("#77FF77"));
+            }
+            else if (Integer.parseInt(items1.get(i).getRating()) < 1200) {
+                viewHolder.rank.setText("Newbie");
+                viewHolder.rank.setTextColor(Color.parseColor("#CCCCCC"));
+            }
+            else {
+                viewHolder.rank.setText("Legendary Grandmasterbie");
+                viewHolder.rank.setTextColor(Color.parseColor("#AA0000"));
+            }
+
+
+
+            String photo = "https:" + items1.get(i).getAvatarUrl();
+            Picasso.with(context)
+                    .load(photo)
+                    //.placeholder(R.drawable.load)
+                    .into(viewHolder.imageView);
     }
 
     @Override
@@ -104,14 +157,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView title, rating1;
+        private TextView title, rating1, rank;
         private ImageView imageView;
+        RelativeLayout item_div;
 
 
         public ViewHolder(View view) {
             super(view);
+
+            item_div = itemView.findViewById(R.id.item_block);
             title = (TextView) view.findViewById(R.id.title);
             rating1 = (TextView) view.findViewById(R.id.rating1);
+            rank = view.findViewById(R.id.rank);
             imageView = (ImageView) view.findViewById(R.id.cover);
 
             //on item click

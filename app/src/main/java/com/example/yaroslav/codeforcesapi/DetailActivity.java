@@ -4,6 +4,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.TreeMap;
 
 import me.gujun.android.taggroup.TagGroup;
 import retrofit2.Call;
@@ -36,6 +41,7 @@ import retrofit2.Response;
 public class DetailActivity extends AppCompatActivity implements OnChartValueSelectedListener {
     TextView Rating, Username, Organization, MaxRating, Contribution, Maxup, Maxdown, City, Country;
     ImageView imageView;
+    TextView RatingText, UsernameText, OrganizationText, MaxRatingText, ContributionText, MaxupText, MaxdownText, CityText, CountryText;
 
     java.util.Map<String, Integer> Map;
     java.util.Map<String, Integer> MapLanguage;
@@ -59,6 +65,10 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_detail);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -75,6 +85,18 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
         Maxup = (TextView) findViewById(R.id.maxup1);
         Maxdown = (TextView) findViewById(R.id.maxdown1);
 
+        //Just text's
+
+        RatingText = findViewById(R.id.rating1);
+        OrganizationText = findViewById(R.id.organization);
+        CountryText = findViewById(R.id.country);
+        CityText = findViewById(R.id.city);
+        MaxRatingText = findViewById(R.id.maxRating);
+        ContributionText = findViewById(R.id.contribution);
+        MaxupText = findViewById(R.id.maxup);
+        MaxdownText = findViewById(R.id.maxdown);
+
+
 
         String username = getIntent().getExtras().getString("login");
         String avatarUrl = getIntent().getExtras().getString("avatar_url");
@@ -85,6 +107,9 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
         String maxRating = getIntent().getExtras().getString("maxRating");
         String contribution = getIntent().getExtras().getString("contribution");
 
+
+
+
         Country.setText(country);
         City.setText(city);
         Rating.setText(rating);
@@ -92,27 +117,52 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
         MaxRating.setText(maxRating);
         Contribution.setText(contribution);
 
+        //Animations
+
+        CountryText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset500));
+        CityText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset500));
+        Country.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset500));
+        City.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset500));
+
+        MaxRatingText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset700));
+        RatingText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset700));
+        Rating.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset700));
+        MaxRating.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset700));
+
+        OrganizationText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset900));
+        ContributionText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset900));
+        Organization.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset900));
+        Contribution.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset900));
+
+        MaxupText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset1100));
+        MaxdownText.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset1100));
+        Maxup.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset1100));
+        Maxdown.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_anim_offset1100));
+
+
+
+
         Username.setText(username);
         Glide.with(this)
                 .load(avatarUrl)
                 //.placeholder(R.drawable.load)
                 .into(imageView);
 
-        getSupportActionBar().setTitle("Details Activity");
+        getSupportActionBar().setTitle("Profile");
 
 
-        Map = new HashMap<String, Integer>();
+        Map = new TreeMap<String, Integer>();
         barChart = (BarChart) findViewById(R.id.barchart);
         Data = new ArrayList<>();
         Labels = new ArrayList<String>();
 
 
 
-        MapLanguage = new HashMap<String, Integer>();
-        MapLanguage1 = new HashMap<String, Integer>();
+        MapLanguage = new TreeMap<String, Integer>();
+        MapLanguage1 = new TreeMap<String, Integer>();
 
-        MapVerdict = new HashMap<String, Integer>();
-        MapVerdict1 = new HashMap<String, Integer>();
+        MapVerdict = new TreeMap<String, Integer>();
+        MapVerdict1 = new TreeMap<String, Integer>();
 
         pieChart = (PieChart) findViewById(R.id.piechart);
         pieChart.setUsePercentValues(true);
@@ -258,12 +308,22 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
 
     private void Ch(){
         Bardataset = new BarDataSet(Data, "Task level");
+        Bardataset.setColor(-1);
         BARDATA = new BarData(Labels, Bardataset);
+        Bardataset.setValueTextColor(-1);
         Bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
         barChart.setData(BARDATA);
+        barChart.getXAxis().setTextColor(-1);
+        barChart.getAxis(YAxis.AxisDependency.LEFT).setTextColor(-1);
+        barChart.getAxis(YAxis.AxisDependency.RIGHT).setTextColor(-1);
         barChart.animateY(1000);
+        barChart.setDescriptionColor(-1);
+        barChart.getLegend().setTextColor(-1);
+
         //barChart.setDrawGridBackground(true);
         barChart.setDescription("Levels");
+
+        barChart.setAnimation(AnimationUtils.loadAnimation(this, R.anim.block_item_anim));
 
 
         mTagGroup = (TagGroup) findViewById(R.id.tag_group);
@@ -281,14 +341,17 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
         pieChart.setDrawHoleEnabled(true);
         pieChart.setTransparentCircleRadius(30f);
         pieChart.setHoleRadius(30f);
+        pieChart.setHoleColor(Color.rgb(21,27,36));
         pieChart.animateY(1000);
         pieChart.setDescription("Programming languages");
+        pieChart.setCenterTextColor(-1);
+        pieChart.setDescriptionColor(-1);
         //pieChart.setDescriptionPosition(10000f, 1000f);
         pieChart.setDescriptionTextSize(15);
         Legend l = pieChart.getLegend();
         l.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+        l.setTextColor(Color.WHITE);
 
-        pieChart.setOnChartValueSelectedListener(this);
 
         PieDataSet dataSet1 = new PieDataSet(values1, "Election Results");
         dataSet1.setColors(ColorTemplate.COLORFUL_COLORS);
@@ -302,9 +365,15 @@ public class DetailActivity extends AppCompatActivity implements OnChartValueSel
         pieChart1.setHoleRadius(30f);
         pieChart1.animateY(1000);
         pieChart1.setDescription("Verdict");
+        pieChart1.setHoleColor(Color.rgb(21,27,36));
         pieChart1.setDescriptionTextSize(15);
+        pieChart1.setDescriptionColor(-1);
         Legend p = pieChart1.getLegend();
         p.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+        p.setTextColor(-1);
+
+
+
     }
 
 
