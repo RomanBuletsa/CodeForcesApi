@@ -4,15 +4,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-
+    <item
+        android:id="@+id/contestsButton"
+        android:title="Contests"
+        android:icon="@drawable/ic_contest"
+        app:showAsAction="always">
+    </item>
     <item
         android:id="@+id/searchButton"
         android:title="Search"
+        android:icon="@drawable/ic_search"
         app:showAsAction="always">
     </item>
     <item
         android:id="@+id/sortButton"
         android:title="Sort"
+        android:icon="@drawable/ic_order"
         app:showAsAction="always">
     </item>
+    <item
+        android:id="@+id/comparisonButton"
+        android:title="Сomparison"
+        android:icon="@drawable/ic_comparison"
+        app:showAsAction="always">
+    </item>
+
 </menu>
